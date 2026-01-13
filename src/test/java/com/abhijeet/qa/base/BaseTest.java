@@ -8,6 +8,7 @@ public class BaseTest {
 
     protected Playwright playwright;
     protected Browser browser;
+    protected BrowserContext context;
     protected Page page;
 
     @BeforeMethod
@@ -16,12 +17,14 @@ public class BaseTest {
         browser = playwright.chromium().launch(
                 new BrowserType.LaunchOptions().setHeadless(false)
         );
-        page = browser.newPage();
+        context = browser.newContext();
+        page = context.newPage();
     }
 
     @AfterMethod
     public void tearDown() {
-        browser.close();
-        playwright.close();
+        if (context != null) context.close();
+        if (browser != null) browser.close();
+        if (playwright != null) playwright.close();
     }
 }
