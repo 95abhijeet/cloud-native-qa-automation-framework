@@ -75,8 +75,5 @@ public class UiApiDataConsistencyTests extends BaseTest {
 
         Assert.assertEquals(Double.parseDouble(uiProductPrice), hardcodedApiProductPrice,
         "UI Price does not match API price");
-
     }
-
-
 }
