@@ -17,11 +17,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1 Checkout the code
+      # Step Checkout the code
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Step 2 Set up Java
+      # Step Set up Java
       - name: Set up Java
         uses: actions/setup-java@v3
         with:
@@ -29,25 +29,29 @@ jobs:
           java-version: '22'
           cache: maven
 
-     # Step 3 Set up Node.js (required by Playwright)
+      # Step Set up Node.js (required by Playwright)
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20'
 
-      # Step 4 Install Playwright chromium
-      - name: Install Playwright chromium
-        run: npx playwright install chromium
+      # Step Install Node dependencies
+      - name: Install Node dependencies
+        run: npm install
 
-      # Step 6 Run maven tests
+      # Step Install Playwright chromium
+      - name: Install Playwright chromium
+        run: mvn playwright:install
+
+      # Step Run maven tests
       - name: Run tests
         run: mvn clean test
 
-      # Step 7 Generate Allure report
+      # Step Generate Allure report
       - name: Generate Allure reports
         run: mvn allure:report
           
-      # Step 8 Upload Allure report as artifact
+      # Step Upload Allure report as artifact
       - name: Upload Allure report
         uses: actions/upload-artifact@v4
         with:
