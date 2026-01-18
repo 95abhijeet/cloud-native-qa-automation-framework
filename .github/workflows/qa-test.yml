@@ -35,10 +35,6 @@ jobs:
         with:
           node-version: '20'
 
-      # Step Install Node dependencies
-      - name: Install Node dependencies
-        run: npm install
-
       # Step Install Playwright chromium
       - name: Install Playwright chromium
         run: mvn playwright:install
