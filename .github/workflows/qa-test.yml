@@ -36,8 +36,8 @@ jobs:
           node-version: '20'
 
       # Step Install Playwright chromium
-      - name: Install Playwright chromium
-        run: mvn playwright:install
+      - name: Install Playwright browsers + dependencies
+        run: mvn exec:java -Dexec.mainClass=com.microsoft.playwright.CLI -Dexec.args="install --with-deps"
 
       # Step Run maven tests
       - name: Run tests
