@@ -39,7 +39,7 @@ public class ProductApiTests {
     //TC-API-V-003
     @Description("Verify the API product response contains mandatory fields")
     @Severity(SeverityLevel.CRITICAL)
-    @Test
+    @Test(groups = {"api"})
     public void verifyProductResponseMandatoryFields(){
 
         Response response =
@@ -91,7 +91,7 @@ public class ProductApiTests {
     //TC-API-P-005
     @Description("Measure API response time for the GET /products endpoint")
     @Severity(SeverityLevel.CRITICAL)
-    @Test
+    @Test(groups = {"api"})
     public void verifyResponseTime() {
         Response response =
                 given()

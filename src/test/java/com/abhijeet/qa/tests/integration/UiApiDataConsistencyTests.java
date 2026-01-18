@@ -24,7 +24,7 @@ public class UiApiDataConsistencyTests extends BaseTest {
     //TC-INT-D-002
     @Description("Verify UI price matches API price for a known product")
     @Severity(SeverityLevel.CRITICAL)
-    @Test
+    @Test(groups = {"api"})
     public void verifyApiPriceMatchUiPrice() {
         // API Step
         Response response =
