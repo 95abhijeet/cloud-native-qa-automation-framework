@@ -92,6 +92,16 @@
 
     </dependencies>
 
+    <profiles>
+        <profile>
+            <id>ci</id>
+            <properties>
+                <!-- This value will be picked up by surefire -->
+                <skip.api.tests>api</skip.api.tests>
+            </properties>
+        </profile>
+    </profiles>
+
     <build>
         <plugins>
             <plugin>
@@ -102,6 +112,7 @@
                     <systemPropertyVariables>
                         <allure.results.directory>target/allure-results</allure.results.directory>
                     </systemPropertyVariables>
+                    <excludedGroups>${skip.api.tests}</excludedGroups>
                 </configuration>
             </plugin>
 
