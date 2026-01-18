@@ -41,7 +41,7 @@ jobs:
 
       # Step Run maven tests
       - name: Run tests
-        run: mvn clean test
+        run: mvn clean test -Pci
 
       # Step Generate Allure report
       - name: Generate Allure reports
