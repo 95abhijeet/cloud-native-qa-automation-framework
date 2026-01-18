@@ -19,7 +19,7 @@ public class ProductApiTests {
     //TC-API-H-001
     @Description("Verify the GET /products endpoint returns HTTP 200 OK")
     @Severity(SeverityLevel.CRITICAL)
-    @Test
+    @Test(groups = {"api"})
     public void verifyProductsEndpointIsAccessible() {
 
         Response response =
@@ -71,7 +71,7 @@ public class ProductApiTests {
     //TC-API-E-004
     @Description("Verify the API returns 404 for a nonexistent endpoint")
     @Severity(SeverityLevel.CRITICAL)
-    @Test
+    @Test(groups = {"api"})
     public void verifyReturnCodeNonExistentEndpoint() {
 
         Response response =
