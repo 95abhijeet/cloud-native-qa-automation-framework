@@ -117,6 +117,7 @@ allure open
 ```
 ⚠️ Do not double-click index.html.
 Allure reports must be opened via a local web server.
+
 ---
 
 ## CI/CD with GitHub Actions
