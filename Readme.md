@@ -115,6 +115,8 @@ View allure report
 cd target/site/allure-maven-plugin
 allure open
 ```
+![Allure Test Report](allure_report.png)
+
 ⚠️ Do not double-click index.html.
 Allure reports must be opened via a local web server.
 
