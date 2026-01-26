@@ -3,14 +3,17 @@ package com.abhijeet.qa.pages;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 
-
-public class CheckoutPage {
+/**
+ * TransactionAuthorizationPage models the final review and commitment stage
+ * of a financial transaction, including summary verification and final submission.
+ */
+public class TransactionAuthorizationPage {
 
     private final Page page;
 
     //Locators
-    private final Locator cartIcon;
-    private final Locator checkoutButton;
+    private final Locator transactionSummaryIcon;
+    private final Locator authorizeButton;
 
     private final Locator firstNameInput;
     private final Locator lastNameInput;
@@ -20,10 +23,10 @@ public class CheckoutPage {
     private final Locator finishButton;
     private final Locator successMessage;
 
-    public CheckoutPage(Page page){
+    public TransactionAuthorizationPage(Page page){
         this.page = page;
-        this.cartIcon = page.locator(".shopping_cart_link");
-        this.checkoutButton = page.locator("#checkout");
+        this.transactionSummaryIcon = page.locator(".shopping_cart_link");
+        this.authorizeButton = page.locator("#checkout");
 
         this.firstNameInput = page.locator("#first-name");
         this.lastNameInput = page.locator("#last-name");
@@ -34,17 +37,17 @@ public class CheckoutPage {
         this.successMessage = page.locator(".complete-header");
     }
 
-    public void goToCart(){
-        cartIcon.click();
-        System.out.println("Navigated to Cart page");
+    public void goToTransactionSummary(){
+        transactionSummaryIcon.click();
+        System.out.println("Navigated to Transaction Summary page");
     }
 
-    public void startCheckout(){
-        checkoutButton.click();
+    public void startAuthorization(){
+        authorizeButton.click();
         System.out.println("Checkout started");
     }
 
-    public void enterCheckoutInformation(String firstName, String lastName, String zip){
+    public void enterAuthorizationInformation(String firstName, String lastName, String zip){
         firstNameInput.fill(firstName);
         lastNameInput.fill(lastName);
         zipCodeInput.fill(zip);
@@ -54,9 +57,9 @@ public class CheckoutPage {
                 + firstName + " " + lastName + ", " + zip);
     }
 
-    public void finishCheckout(){
+    public void finishAuthorization(){
         finishButton.click();
-        System.out.println("Checkout completed");
+        System.out.println("Authorization completed");
     }
 
     public String getSuccessMessage() {

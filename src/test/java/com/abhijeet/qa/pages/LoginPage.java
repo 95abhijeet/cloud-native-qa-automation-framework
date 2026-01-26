@@ -7,30 +7,30 @@ public class LoginPage {
     private final Page page;
 
     // Locators
-    private final String usernameInput = "#user-name";
-    private final String passwordInput = "#password";
-    private final String loginButton = "#login-button";
-    private final String errorMessage = "[data-test='error']";
+    private final String usernameField = "#user-name";
+    private final String passwordField = "#password";
+    private final String signInButton = "#login-button";
+    private final String securityAlert = "[data-test='error']";
 
 
     public LoginPage(Page page) {
         this.page = page;
     }
 
-    public void navigateToLoginPage() {
+    public void navigateToPortal() {
         page.navigate("https://www.saucedemo.com/");
     }
 
     public void enterUsername(String username) {
-        page.fill(usernameInput, username);
+        page.fill(usernameField, username);
     }
 
     public void enterPassword(String password) {
-        page.fill(passwordInput, password);
+        page.fill(passwordField, password);
     }
 
     public void clickLogin() {
-        page.click(loginButton);
+        page.click(signInButton);
     }
 
     public void login(String username, String password) {
@@ -39,11 +39,11 @@ public class LoginPage {
         clickLogin();
     }
 
-    public boolean isErrorMessageDisplayed() {
-        return page.isVisible(errorMessage);
+    public boolean isSecurityAlertVisible() {
+        return page.isVisible(securityAlert);
     }
 
-    public String getErrorMessageText() {
-        return page.textContent(errorMessage);
+    public String getAuthenticationFailureMessage() {
+        return page.textContent(securityAlert);
     }
 }

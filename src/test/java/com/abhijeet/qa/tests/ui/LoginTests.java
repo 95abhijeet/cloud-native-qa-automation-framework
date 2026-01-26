@@ -12,6 +12,10 @@ import org.testng.annotations.Test;
 import java.util.Map;
 
 // import static org.testng.Assert.assertTrue;
+/**
+ * LoginTests validates the Secure Gateway access controls,
+ * ensuring only authorized personnel can access the financial dashboard.
+ */
 
 public class LoginTests extends BaseTest {
 
@@ -24,12 +28,12 @@ public class LoginTests extends BaseTest {
         Map<String, Object> user = TestDataUtil.getUserData("valid_username");
         LoginPage loginPage = new LoginPage(page);
 
-        loginPage.navigateToLoginPage();
+        loginPage.navigateToPortal();
         loginPage.login(user.get("username").toString(), user.get("password").toString());
 
         Assert.assertTrue(
                 page.url().contains("inventory"),
-                "User should be redirected to Product Catalog page after successful login"
+                "User should be granted access to the Financial Dashboard upon valid authentication"
         );
     }
 
@@ -42,17 +46,17 @@ public class LoginTests extends BaseTest {
         Map<String, Object> user = TestDataUtil.getUserData("invalid_username");
         LoginPage loginPage = new LoginPage(page);
 
-        loginPage.navigateToLoginPage();
+        loginPage.navigateToPortal();
         loginPage.login(user.get("username").toString(), user.get("password").toString());
 
         Assert.assertTrue(
-                loginPage.isErrorMessageDisplayed(),
-                "Error message should be displayed for invalid login"
+                loginPage.isSecurityAlertVisible(),
+                "Security alert should be triggered for unauthorized access attempts"
         );
 
         Assert.assertTrue(
-                loginPage.getErrorMessageText().toLowerCase().contains("username and password"),
-                "Correct error message should be shown"
+                loginPage.getAuthenticationFailureMessage().toLowerCase().contains("username and password"),
+                "System must provide a generic security message to prevent 'Username Enumeration' attacks"
         );
     }
 }

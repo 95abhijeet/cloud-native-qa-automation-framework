@@ -1,8 +1,19 @@
 # Cloud-Native QA Automation Framework
 
 ## Overview
-This is a **comprehensive QA automation framework** for web UI, API, and integration testing.  
-It leverages **Java, Playwright, TestNG, RestAssured, and Allure** to deliver robust, maintainable, and scalable automation.
+This is a **comprehensive QA automation framework** designed for the rigorous demands of **Banking and Fintech ecosystems**.
+It ensures the reliability of complex financial workflows across Web UI, RESTful Microservices, and Backend Data layers.
+
+> **Note**: The framework is built to be Application Agnostic.
+While the current implementation uses a Retail/E-commerce environment as a public testbed, 
+the underlying architecture is designed to handle the complex JSON schemas 
+and state-machine transitions typical of Banking APIs.
+
+By leveraging **Java 22, Playwright, and RestAssured**, this framework provides a "Digital Assurance" layer that validates:
+
+- **Transaction Integrity**: Ensuring data consistency between Frontend UI and Backend APIs.
+- **Security Protocols**: Validation of secure headers, session handling, and API status codes.
+- **Regulatory Readiness**: Automated audit-ready reporting via Allure.
 
 The framework is designed for **end-to-end testing** of web applications, including:
 
@@ -14,24 +25,26 @@ The framework is designed for **end-to-end testing** of web applications, includ
 
 ## Tech Stack
 
-| Layer | Technology |
-|-------|-----------|
-| Language | Java 22 |
-| UI Automation | Playwright |
-| API Testing | RestAssured, JSON Path |
-| Test Framework | TestNG |
-| Reporting | Allure Reports |
-| Build & Dependency Management | Maven |
-| CI/CD | GitHub Actions |
+| Layer                         | Technology                                    |
+|-------------------------------|-----------------------------------------------|
+| Language                      | Java 22                                       |
+| Digital UI Automation         | Playwright (Cross-browser / High Concurrency) |
+| API Testing                   | RestAssured, JSON Path                        |
+| Test Framework                | TestNG                                        |
+| Compliance Reporting          | Allure Reports (Audit-ready logs)             |
+| Build & Dependency Management | Maven                                         |
+| CI/CD                         | GitHub Actions                                |
 
 ---
-## Why This Framework?
+## Why This Framework for Banking?
+In a financial context, a failure in data consistency isn't just a bug—it's a risk.
+This framework demonstrates:
+- **Zero-Trust Validation**: API + UI cross-referencing in a single execution.
+- **Atomic API Testing**: Independent microservice validation using RestAssured. 
+- **Decoupled Architecture**: Separation of Test Logic, Page Objects, and Environment Data.
+- **Cross-Browser Resilience**: Multi-browser support (Chromium, Firefox, Webkit) powered by Playwright.
+- **Audit-Ready Reporting**: Detailed step-by-step execution logs and screenshots for every test case.
 
-This framework demonstrates real-world QA automation practices including:
-- CI-first execution
-- API + UI validation in a single pipeline
-- Production-style reporting
-- Secure handling of environment configuration
 
 ---
 ## Project Structure
@@ -42,9 +55,10 @@ cloud-native-qa-automation-framework
 │   ├── test
 │   │   ├── java
 │   │   │   ├── api
-│   │   │   │   └── ProductApiTests.java
+│   │   │   │   └── TransactionServiceTests.java
 │   │   │   ├── ui
-│   │   │   └── UiApiDataConsistencyTests.java
+│   │   │   │   └── AccountDashboardTests.java
+│   │   │   └── FinancialDataIntegrityTests.java
 │   │   └── resources
 │   └── main
 │
@@ -62,22 +76,23 @@ cloud-native-qa-automation-framework
 ```
 ---
 
-## Test Coverage
+## Test Coverage (Banking Context)
 
 🔹 **API Tests**
-- Endpoint accessibility validation
-- HTTP status code verification (200 / 404)
-- Mandatory field validation
-- Negative test scenarios
+- Service availability and endpoint resilience. 
+- Secure HTTP status code verification (Auth/Unauth states). 
+- Field validation for financial payloads. 
+- Negative testing for "Invalid Transaction" scenarios.
 
 🔹 **UI Tests**
 - UI flow validation using Playwright
 - Browser-based functional checks
+- Cross-browser resilience using Playwright.
 - Headless execution for CI
 
-🔹 **UI ↔ API Data Consistency**
-- Price and data comparison between UI and API
-- End-to-end validation of backend ↔ frontend integrity
+🔹 **Data Integrity (E2E)**
+- Reconciliation: Comparing account balances/transaction data shown on the UI against the API source of truth. 
+- End-to-End Audit: Validating backend state changes after UI-triggered events.
 ---
 
 ## Running Tests Locally
