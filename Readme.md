@@ -1,4 +1,4 @@
-![Build Status](https://img.shields.io/github/actions/workflow/status/95abhijeet/qa-automation-framework/qa-automation.yml?branch=main&style=for-the-badge&logo=githubactions&logoColor=white)
+![Build Status](https://img.shields.io/github/actions/workflow/status/95abhijeet/Fintech-Quality-Assurance-Automation-Framework-for-Transaction-Reconciliation/qa-test.yml?branch=main&style=for-the-badge&logo=githubactions&logoColor=white)
 [![Allure Report](https://img.shields.io/badge/Allure%20Report-Live-green?style=for-the-badge&logo=allure)](https://95abhijeet.github.io/Fintech-Quality-Assurance-Automation-Framework-for-Transaction-Reconciliation/)
 ![Java Version](https://img.shields.io/badge/Java-22-orange?style=for-the-badge&logo=openjdk&logoColor=white)
 ![Playwright](https://img.shields.io/badge/Playwright-Automated-blue?style=for-the-badge&logo=playwright&logoColor=white)
