@@ -1,4 +1,4 @@
-# Cloud-Native QA Automation Framework
+# Fintech Quality Assurance: Automation Framework for Transaction & Reconciliation
 
 ## Overview
 This is a **comprehensive QA automation framework** designed for the rigorous demands of **Banking and Fintech ecosystems**.
@@ -55,10 +55,14 @@ cloud-native-qa-automation-framework
 │   ├── test
 │   │   ├── java
 │   │   │   ├── api
-│   │   │   │   └── TransactionServiceTests.java
+│   │   │   │   └── FinancialServiceApiTests.java
 │   │   │   ├── ui
-│   │   │   │   └── AccountDashboardTests.java
-│   │   │   └── FinancialDataIntegrityTests.java
+│   │   │   │   ├── LoginTests.java
+│   │   │   │   ├── FinancialServiceCatalogTests.java
+│   │   │   │   ├── TransactionExecutionTests.java
+│   │   │   │   └── TransactionStagingTests.java
+│   │   │   └── integration
+│   │   │       └── FinancialReconciliationTests.java
 │   │   └── resources
 │   └── main
 │
